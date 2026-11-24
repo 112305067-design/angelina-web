@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>顏久勻 Angelina | 個人小宇宙</title>
+  <!-- 引入圓潤可愛的 Google Fonts 字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ================= 1. 色彩與視覺變數 (60-30-10 原則) ================= */
+    :root {
+      --bg-cream: #FFFBF2;       /* 60% 暖奶油白底色 */
+      --card-white: #FFFFFF;     /* 30% 卡片純白 */
+      --butter-yellow: #FFE169;  /* 30% 奶油黃重點區塊 */
+      --pastel-pink: #FFB3C6;    /* 輔助草莓粉 */
+      --pastel-mint: #A8E6CF;    /* 輔助薄荷綠 */
+      --pastel-blue: #B8E0FF;    /* 輔助寶寶藍 */
+      --pastel-purple: #E2CFEA;  /* 輔助香芋紫 */
+      --accent-orange: #FF6B4A;  /* 10% 高對比強調色 */
+      --ink-dark: #1E1E1E;       /* 深炭黑文字與框線 */
+      
+      --border-thick: 2.5px solid var(--ink-dark);
+      --shadow-hard: 4px 4px 0px var(--ink-dark);
+      --shadow-hard-lg: 6px 6px 0px var(--ink-dark);
+      --radius-card: 24px;
+      --radius-pill: 999px;
+    }
+
+    /* ================= 2. 基礎排版與 8px 網格系統 ================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--ink-dark);
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      /* 淡淡的點點背景增添可愛感 */
+      background-image: radial-gradient(#E8DEC8 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ================= 3. 懸浮膠囊導覽列 ================= */
+    header {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      padding: 0 16px;
+      margin-top: 16px;
+    }
+
+    .navbar {
+      max-width: 928px;
+      margin: 0 auto;
+      background: var(--card-white);
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-hard);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 900;
+      text-decoration: none;
+      color: var(--ink-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-dark);
+      font-weight: 700;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    /* 雙語切換膠囊按鈕 */
+    .lang-btn {
+      background: var(--butter-yellow);
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      padding: 6px 16px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink-dark);
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--ink-dark);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .lang-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--ink-dark);
+    }
+
+    .lang-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--ink-dark);
+    }
+
+    /* ================= 4. 首頁主視覺 (Hero Section) ================= */
+    .hero {
+      padding: 64px 0 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--pastel-purple);
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      padding: 6px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      box-shadow: 2px 2px 0px var(--ink-dark);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      font-weight: 700;
+      color: #4A4A4A;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    /* 主要行動按鈕 (CTA) */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 28px;
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-hard);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-hard-lg);
+    }
+
+    .btn-primary:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0px var(--ink-dark);
+    }
+
+    /* 右側圓潤大頭照區 */
+    .hero-avatar-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-frame {
+      width: 260px;
+      height: 260px;
+      background: var(--butter-yellow);
+      border: var(--border-thick);
+      /* 可愛有機圓潤形狀 */
+      border-radius: 44% 56% 48% 52% / 52% 46% 54% 48%;
+      box-shadow: var(--shadow-hard-lg);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sticker {
+      position: absolute;
+      font-size: 32px;
+      user-select: none;
+      animation: float 3s ease-in-out infinite;
+    }
+    .sticker-1 { top: -8px; right: 16px; animation-delay: 0s; }
+    .sticker-2 { bottom: 8px; left: 8px; animation-delay: 1.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(6deg); }
+    }
+
+    /* 可愛波浪分隔線 */
+    .wavy-divider {
+      width: 100%;
+      height: 24px;
+      margin: 16px 0 48px;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 Q 10 0, 20 6 T 40 6' fill='none' stroke='%231E1E1E' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-position: center;
+    }
+
+    /* ================= 5. 關於我區塊 (About Section) ================= */
+    .section-title {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-card {
+      background: var(--butter-yellow);
+      border: var(--border-thick);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-hard-lg);
+      padding: 32px;
+      margin-bottom: 64px;
+    }
+
+    .about-text {
+      font-size: 16px;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag {
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 2px 2px 0px var(--ink-dark);
+    }
+    .tag-pink { background: var(--pastel-pink); }
+    .tag-mint { background: var(--pastel-mint); }
+    .tag-blue { background: var(--pastel-blue); }
+    .tag-white { background: var(--card-white); }
+
+    /* ================= 6. 日常記錄卡片 (嚴格 16:9 封面) ================= */
+    .logs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .log-card {
+      background: var(--card-white);
+      border: var(--border-thick);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-hard-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .log-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 9px 9px 0px var(--ink-dark);
+    }
+
+    /* 鎖定 16:9 比例的封面容器 */
+    .cover-16-9 {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-bottom: var(--border-thick);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover-16-9 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 預設可愛封面背景（換成自己的照片後會自動被蓋掉） */
+    .placeholder-1 {
+      background: linear-gradient(135deg, #FFD6A5 0%, #FFB3C6 100%);
+    }
+    .placeholder-2 {
+      background: linear-gradient(135deg, #A8E6CF 0%, #B8E0FF 100%);
+    }
+    .placeholder-icon {
+      font-size: 56px;
+      filter: drop-shadow(3px 3px 0px rgba(30,30,30,0.2));
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .card-category {
+      background: var(--bg-cream);
+      border: 2px solid var(--ink-dark);
+      border-radius: var(--radius-pill);
+      padding: 2px 12px;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 15px;
+      color: #4A4A4A;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .btn-card {
+      align-self: flex-start;
+      background: var(--card-white);
+      color: var(--ink-dark);
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      padding: 8px 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--ink-dark);
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-card:hover {
+      background: var(--butter-yellow);
+      transform: translate(-1px, -1px);
+    }
+
+    /* ================= 7. 頁尾聯絡區塊 ================= */
+    footer {
+      background: var(--card-white);
+      border-top: var(--border-thick);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+
+    .social-btn {
+      text-decoration: none;
+      color: var(--ink-dark);
+      background: var(--bg-cream);
+      border: var(--border-thick);
+      border-radius: var(--radius-pill);
+      padding: 10px 24px;
+      font-weight: 700;
+      box-shadow: 3px 3px 0px var(--ink-dark);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .social-btn:hover {
+      background: var(--pastel-pink);
+      transform: translate(-2px, -2px);
+    }
+
+    .copyright {
+      font-size: 14px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* ================= 8. 彈出詳細視窗 (Modal) ================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 30, 30, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      z-index: 200;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card-white);
+      border: var(--border-thick);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-hard-lg);
+      max-width: 560px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: var(--border-thick);
+      background: var(--pastel-pink);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* ================= 9. 手機版響應式設計 (RWD) ================= */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-avatar-wrap {
+        order: -1; /* 手機版讓大頭照在最上面 */
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .logs-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links a {
+        display: none; /* 手機版精簡導覽列，保留 Logo 與語言切換 */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">✦ Angelina</a>
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav_about">關於我</a>
+        <a href="#logs" data-i18n="nav_logs">日常記錄</a>
+        <button id="langToggle" class="lang-btn">EN / 中</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- 主視覺 Hero -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge" data-i18n="hero_badge">✨ 歡迎來到我的小宇宙</div>
+        <h1>顏久勻 Angelina</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">一個大學生</p>
+        <p class="hero-desc" data-i18n="hero_desc">
+          這裡是記錄我大學生活、靈感碎片與各種好玩嘗試的小基地！喜歡用輕鬆的方式收集日常裡閃閃發光的瞬間。
+        </p>
+        <a href="#logs" class="btn-primary" data-i18n="hero_cta">往下看我的記錄 ↓</a>
+      </div>
+
+      <div class="hero-avatar-wrap">
+        <div class="avatar-frame">
+          <!-- 💡 之後要換成自己的大頭照，把下面這行打開並把照片命名為 avatar.jpg 放在同一資料夾即可 -->
+          <!-- <img src="avatar.jpg" alt="顏久勻 Angelina"> -->
+          <span style="font-size: 96px;">😊</span>
+        </div>
+        <span class="sticker sticker-1">⭐</span>
+        <span class="sticker sticker-2">☁️</span>
+      </div>
+    </section>
+
+    <div class="wavy-divider"></div>
+
+    <!-- 關於我 -->
+    <section id="about">
+      <h2 class="section-title" data-i18n="about_title">☁️ 關於我</h2>
+      <div class="about-card">
+        <p class="about-text" data-i18n="about_text">
+          哈囉！我是久勻（Angelina），目前是一位大學生。這個網站是我用來存放生活記錄與小靈感的秘密基地。平常喜歡到處走走拍照、觀察有趣的視覺設計，也喜歡記錄下生活中的各種小發現！
+        </p>
+        <div class="tags-wrap">
+          <span class="tag tag-pink" data-i18n="tag_1">📷 隨手拍</span>
+          <span class="tag tag-mint" data-i18n="tag_2">🎨 視覺靈感</span>
+          <span class="tag tag-blue" data-i18n="tag_3">☕ 咖啡廳探店</span>
+          <span class="tag tag-white" data-i18n="tag_4">🎵 音樂日常</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 日常記錄 (16:9 封面) -->
+    <section id="logs">
+      <h2 class="section-title" data-i18n="logs_title">⭐ 日常記錄</h2>
+      <div class="logs-grid">
+        
+        <!-- 卡片 1 -->
+        <article class="log-card">
+          <div class="cover-16-9 placeholder-1">
+            <!-- 💡 換成自己的 16:9 照片時，取消下面這行註解並放入 cover1.jpg -->
+            <!-- <img src="cover1.jpg" alt="城市光影散步日誌"> -->
+            <span class="placeholder-icon">🏙️</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-category" data-i18n="log1_cat">#日常攝影</span>
+              <span>2026.11</span>
+            </div>
+            <h3 class="card-title" data-i18n="log1_title">城市光影散步日誌</h3>
+            <p class="card-desc" data-i18n="log1_desc">
+              記錄下課後在街頭捕捉的午後光影、可愛的招牌字體，以及那些讓人會心一笑的城市角落。
+            </p>
+            <button class="btn-card" onclick="openModal('log1')" data-i18n="btn_more">看看細節 →</button>
+          </div>
+        </article>
+
+        <!-- 卡片 2 -->
+        <article class="log-card">
+          <div class="cover-16-9 placeholder-2">
+            <!-- 💡 換成自己的 16:9 照片時，取消下面這行註解並放入 cover2.jpg -->
+            <!-- <img src="cover2.jpg" alt="週末咖啡廳配色收集冊"> -->
+            <span class="placeholder-icon">☕</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-category" data-i18n="log2_cat">#靈感實驗</span>
+              <span>2026.10</span>
+            </div>
+            <h3 class="card-title" data-i18n="log2_title">週末咖啡廳配色收集冊</h3>
+            <p class="card-desc" data-i18n="log2_desc">
+              把週末造訪的咖啡廳空間、杯套與甜點色彩整理成專屬色票，當作未來創作的配色靈感庫。
+            </p>
+            <button class="btn-card" onclick="openModal('log2')" data-i18n="btn_more">看看細節 →</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer>
+    <div class="container">
+      <h2 style="font-size: 24px; font-weight: 900;" data-i18n="footer_title">💌 來找我玩！</h2>
+      <div class="social-links">
+        <!-- 💡 把下面的 # 換成你的真實連結或 mailto:你的信箱 -->
+        <a href="mailto:hello@example.com" class="social-btn">Email</a>
+        <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
+        <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
+      </div>
+      <p class="copyright">© 2026 顏久勻 Angelina ✦ All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 詳細內容彈出視窗 -->
+  <div id="modalOverlay" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal(event, true)">✕</button>
+      <h3 id="modalTitle" style="font-size: 24px; font-weight: 900; margin-bottom: 12px;"></h3>
+      <p id="modalContent" style="font-size: 16px; color: #333;"></p>
+    </div>
+  </div>
+
+  <!-- 雙語切換與彈窗互動腳本 -->
+  <script>
+    const translations = {
+      zh: {
+        nav_about: "關於我",
+        nav_logs: "日常記錄",
+        hero_badge: "✨ 歡迎來到我的小宇宙",
+        hero_subtitle: "一個大學生",
+        hero_desc: "這裡是記錄我大學生活、靈感碎片與各種好玩嘗試的小基地！喜歡用輕鬆的方式收集日常裡閃閃發光的瞬間。",
+        hero_cta: "往下看我的記錄 ↓",
+        about_title: "☁️ 關於我",
+        about_text: "哈囉！我是久勻（Angelina），目前是一位大學生。這個網站是我用來存放生活記錄與小靈感的秘密基地。平常喜歡到處走走拍照、觀察有趣的視覺設計，也喜歡記錄下生活中的各種小發現！",
+        tag_1: "📷 隨手拍",
+        tag_2: "🎨 視覺靈感",
+        tag_3: "☕ 咖啡廳探店",
+        tag_4: "🎵 音樂日常",
+        logs_title: "⭐ 日常記錄",
+        log1_cat: "#日常攝影",
+        log1_title: "城市光影散步日誌",
+        log1_desc: "記錄下課後在街頭捕捉的午後光影、可愛的招牌字體，以及那些讓人會心一笑的城市角落。",
+        log1_full: "這是一份關於台北街頭散步的隨手記錄。我很喜歡在下午四點左右出門，這時候的陽光斜斜地灑在建築物與行道樹上，總能拍出很溫暖的色調。未來這裡會持續放上更多 16:9 的街拍照片！",
+        log2_cat: "#靈感實驗",
+        log2_title: "週末咖啡廳配色收集冊",
+        log2_desc: "把週末造訪的咖啡廳空間、杯套與甜點色彩整理成專屬色票，當作未來創作的配色靈感庫。",
+        log2_full: "每次去不同的咖啡廳，除了喝拿鐵與吃甜點，我最喜歡觀察店裡的配色！從奶油白牆面、溫潤木頭桌到亮色系的杯墊，把它們記錄下來就是最棒的日常美感練習。",
+        btn_more: "看看細節 →",
+        footer_title: "💌 來找我玩！"
+      },
+      en: {
+        nav_about: "About",
+        nav_logs: "My Logs",
+        hero_badge: "✨ Welcome to my little universe",
+        hero_subtitle: "A University Student",
+        hero_desc: "A cozy little space documenting my university life, creative sparks, and fun everyday experiments.",
+        hero_cta: "Explore My Logs ↓",
+        about_title: "☁️ About Me",
+        about_text: "Hi! I'm Angelina, currently a university student. This website is my personal playground for keeping life logs and visual inspirations. I love casual street photography, observing playful designs, and collecting little joys!",
+        tag_1: "📷 Photography",
+        tag_2: "🎨 Visual Design",
+        tag_3: "☕ Cafe Hopping",
+        tag_4: "🎵 Music",
+        logs_title: "⭐ My Logs",
+        log1_cat: "#Photography",
+        log1_title: "City Light & Shadow Walk",
+        log1_desc: "Capturing golden hour shadows, quirky street signs, and charming city corners after class.",
+        log1_full: "A casual collection of street walks around the city. I love heading out around 4 PM when the sunlight hits the buildings at a warm angle. More 16:9 photo logs coming soon!",
+        log2_cat: "#Inspiration",
+        log2_title: "Weekend Cafe Color Palettes",
+        log2_desc: "Collecting color palettes from cozy cafes, cup sleeves, and desserts as a visual inspiration library.",
+        log2_full: "Whenever I visit a new cafe, I love observing the color combinations—from creamy walls and wooden tables to vibrant coasters. Documenting them is my favorite way to practice visual aesthetics.",
+        btn_more: "Read More →",
+        footer_title: "💌 Say Hi!"
+      }
+    };
+
+    let currentLang = 'zh';
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'zh' ? 'en' : 'zh';
+      document.documentElement.lang = currentLang === 'zh' ? 'zh-Hant' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+    });
+
+    function openModal(logKey) {
+      document.getElementById('modalTitle').textContent = translations[currentLang][logKey + '_title'];
+      document.getElementById('modalContent').textContent = translations[currentLang][logKey + '_full'];
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal(event, force = false) {
+      if (force || event.target.id === 'modalOverlay') {
+        document.getElementById('modalOverlay').classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
