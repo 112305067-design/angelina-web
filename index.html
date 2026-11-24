@@ -46,7 +46,6 @@
       font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
       font-size: 16px;
       line-height: 1.7;
-      /* 淡淡的點點背景增添可愛感 */
       background-image: radial-gradient(#E8DEC8 1.5px, transparent 1.5px);
       background-size: 24px 24px;
       overflow-x: hidden;
@@ -109,7 +108,6 @@
       color: var(--accent-orange);
     }
 
-    /* 雙語切換膠囊按鈕 */
     .lang-btn {
       background: var(--butter-yellow);
       border: var(--border-thick);
@@ -158,7 +156,7 @@
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 900;
       line-height: 1.2;
       margin-bottom: 12px;
@@ -178,7 +176,6 @@
       max-width: 460px;
     }
 
-    /* 主要行動按鈕 (CTA) */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -205,7 +202,7 @@
       box-shadow: 1px 1px 0px var(--ink-dark);
     }
 
-    /* 右側圓潤大頭照區 */
+    /* 右側大頭照區 */
     .hero-avatar-wrap {
       position: relative;
       display: flex;
@@ -214,11 +211,10 @@
     }
 
     .avatar-frame {
-      width: 260px;
-      height: 260px;
+      width: 250px;
+      height: 250px;
       background: var(--butter-yellow);
       border: var(--border-thick);
-      /* 可愛有機圓潤形狀 */
       border-radius: 44% 56% 48% 52% / 52% 46% 54% 48%;
       box-shadow: var(--shadow-hard-lg);
       overflow: hidden;
@@ -248,7 +244,6 @@
       50% { transform: translateY(-8px) rotate(6deg); }
     }
 
-    /* 可愛波浪分隔線 */
     .wavy-divider {
       width: 100%;
       height: 24px;
@@ -258,7 +253,7 @@
       background-position: center;
     }
 
-    /* ================= 5. 關於我區塊 (About Section) ================= */
+    /* ================= 5. 關於我區塊 ================= */
     .section-title {
       font-size: 28px;
       font-weight: 900;
@@ -302,7 +297,7 @@
     .tag-blue { background: var(--pastel-blue); }
     .tag-white { background: var(--card-white); }
 
-    /* ================= 6. 日常記錄卡片 (嚴格 16:9 封面) ================= */
+    /* ================= 6. 日常記錄卡片 (16:9 比例) ================= */
     .logs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -326,16 +321,13 @@
       box-shadow: 9px 9px 0px var(--ink-dark);
     }
 
-    /* 鎖定 16:9 比例的封面容器 */
     .cover-16-9 {
       width: 100%;
       aspect-ratio: 16 / 9;
       border-bottom: var(--border-thick);
       overflow: hidden;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #EAEAEA;
     }
 
     .cover-16-9 img {
@@ -343,18 +335,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    /* 預設可愛封面背景（換成自己的照片後會自動被蓋掉） */
-    .placeholder-1 {
-      background: linear-gradient(135deg, #FFD6A5 0%, #FFB3C6 100%);
-    }
-    .placeholder-2 {
-      background: linear-gradient(135deg, #A8E6CF 0%, #B8E0FF 100%);
-    }
-    .placeholder-icon {
-      font-size: 56px;
-      filter: drop-shadow(3px 3px 0px rgba(30,30,30,0.2));
     }
 
     .card-body {
@@ -492,7 +472,7 @@
       cursor: pointer;
     }
 
-    /* ================= 9. 手機版響應式設計 (RWD) ================= */
+    /* ================= 9. 手機版響應式設計 ================= */
     @media (max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
@@ -504,7 +484,7 @@
         margin-right: auto;
       }
       .hero-avatar-wrap {
-        order: -1; /* 手機版讓大頭照在最上面 */
+        order: -1;
       }
       .hero h1 {
         font-size: 36px;
@@ -513,7 +493,7 @@
         grid-template-columns: 1fr;
       }
       .nav-links a {
-        display: none; /* 手機版精簡導覽列，保留 Logo 與語言切換 */
+        display: none;
       }
     }
   </style>
@@ -547,9 +527,7 @@
 
       <div class="hero-avatar-wrap">
         <div class="avatar-frame">
-          <!-- 💡 之後要換成自己的大頭照，把下面這行打開並把照片命名為 avatar.jpg 放在同一資料夾即可 -->
-          <!-- <img src="avatar.jpg" alt="顏久勻 Angelina"> -->
-          <span style="font-size: 96px;">😊</span>
+          <img src="avatar.jpg" alt="顏久勻 Angelina">
         </div>
         <span class="sticker sticker-1">⭐</span>
         <span class="sticker sticker-2">☁️</span>
@@ -581,10 +559,8 @@
         
         <!-- 卡片 1 -->
         <article class="log-card">
-          <div class="cover-16-9 placeholder-1">
-            <!-- 💡 換成自己的 16:9 照片時，取消下面這行註解並放入 cover1.jpg -->
-            <!-- <img src="cover1.jpg" alt="城市光影散步日誌"> -->
-            <span class="placeholder-icon">🏙️</span>
+          <div class="cover-16-9">
+            <img src="cover1.jpg" alt="城市光影散步日誌">
           </div>
           <div class="card-body">
             <div class="card-meta">
@@ -601,10 +577,8 @@
 
         <!-- 卡片 2 -->
         <article class="log-card">
-          <div class="cover-16-9 placeholder-2">
-            <!-- 💡 換成自己的 16:9 照片時，取消下面這行註解並放入 cover2.jpg -->
-            <!-- <img src="cover2.jpg" alt="週末咖啡廳配色收集冊"> -->
-            <span class="placeholder-icon">☕</span>
+          <div class="cover-16-9">
+            <img src="cover2.jpg" alt="週末咖啡廳配色收集冊">
           </div>
           <div class="card-body">
             <div class="card-meta">
@@ -628,7 +602,6 @@
     <div class="container">
       <h2 style="font-size: 24px; font-weight: 900;" data-i18n="footer_title">💌 來找我玩！</h2>
       <div class="social-links">
-        <!-- 💡 把下面的 # 換成你的真實連結或 mailto:你的信箱 -->
         <a href="mailto:hello@example.com" class="social-btn">Email</a>
         <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
         <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
@@ -666,7 +639,7 @@
         log1_cat: "#日常攝影",
         log1_title: "城市光影散步日誌",
         log1_desc: "記錄下課後在街頭捕捉的午後光影、可愛的招牌字體，以及那些讓人會心一笑的城市角落。",
-        log1_full: "這是一份關於台北街頭散步的隨手記錄。我很喜歡在下午四點左右出門，這時候的陽光斜斜地灑在建築物與行道樹上，總能拍出很溫暖的色調。未來這裡會持續放上更多 16:9 的街拍照片！",
+        log1_full: "這是一份關於台北街頭散步的隨手記錄。我很喜歡在下午四點左右出門，這時候的陽光斜斜地灑在建築物與行道樹上，總能拍出很溫暖的色調。台北的巷弄裡藏著好多可愛的小驚喜！",
         log2_cat: "#靈感實驗",
         log2_title: "週末咖啡廳配色收集冊",
         log2_desc: "把週末造訪的咖啡廳空間、杯套與甜點色彩整理成專屬色票，當作未來創作的配色靈感庫。",
@@ -679,7 +652,7 @@
         nav_logs: "My Logs",
         hero_badge: "✨ Welcome to my little universe",
         hero_subtitle: "A University Student",
-        hero_desc: "A cozy little space documenting my university life, creative sparks, and fun everyday experiments.",
+        hero_desc: "A cozy little space documenting my university life, creative sparks, and fun everyday experiments. I love capturing sparkling moments in ordinary life in a playful way.",
         hero_cta: "Explore My Logs ↓",
         about_title: "☁️ About Me",
         about_text: "Hi! I'm Angelina, currently a university student. This website is my personal playground for keeping life logs and visual inspirations. I love casual street photography, observing playful designs, and collecting little joys!",
@@ -691,7 +664,7 @@
         log1_cat: "#Photography",
         log1_title: "City Light & Shadow Walk",
         log1_desc: "Capturing golden hour shadows, quirky street signs, and charming city corners after class.",
-        log1_full: "A casual collection of street walks around the city. I love heading out around 4 PM when the sunlight hits the buildings at a warm angle. More 16:9 photo logs coming soon!",
+        log1_full: "A casual collection of street walks around Taipei. I love heading out around 4 PM when the sunlight hits the buildings at a warm angle. Every neighborhood alley hides cute little surprises!",
         log2_cat: "#Inspiration",
         log2_title: "Weekend Cafe Color Palettes",
         log2_desc: "Collecting color palettes from cozy cafes, cup sleeves, and desserts as a visual inspiration library.",
